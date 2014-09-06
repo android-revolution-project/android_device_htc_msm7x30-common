@@ -127,6 +127,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dex2oat-filter=interpret-only \
 	dalvik.vm.image-dex2oat-filter=speed
 
+# For applications to determine if they should turn off specific memory-intensive
+# features that work poorly on low-memory devices.
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.config.low_ram=true
+
 ifeq ($(TARGET_UNOFFICIAL_BUILD_ID),)
 PRODUCT_PROPERTY_OVERRIDES += ro.odp.releasetype=NIGHTLY
 else
