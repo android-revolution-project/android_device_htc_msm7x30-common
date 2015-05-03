@@ -127,5 +127,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dex2oat-filter=interpret-only \
 	dalvik.vm.image-dex2oat-filter=speed
 
+ifeq ($(TARGET_UNOFFICIAL_BUILD_ID),)
+PRODUCT_PROPERTY_OVERRIDES += ro.odp.releasetype=NIGHTLY
+else
+PRODUCT_PROPERTY_OVERRIDES += ro.odp.releasetype=SNAPSHOT
+endif
+
 # proprietary blobs for msm7x30
 $(call inherit-product, vendor/htc/msm7x30-common/msm7x30-common-vendor.mk)
