@@ -137,13 +137,13 @@ TARGET_RECOVERY_DEVICE_DIRS += device/htc/msm7x30-common
 #    vold.te \
 #    wpa.te
 
-# Dexpreopt
-ifeq ($(USE_DEXPREOPT),true)
-    # Enable dex-preoptimization to speed up first boot sequence
-    ifeq ($(HOST_OS),linux)
-        ifeq ($(WITH_DEXPREOPT),)
-            WITH_DEXPREOPT := true
-            WITH_DEXPREOPT_COMP := true
-        endif
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+    ifeq ($(WITH_DEXPREOPT),)
+        WITH_DEXPREOPT := true
+        #WITH_DEXPREOPT_BOOT_IMG_ONLY := true
+        WITH_DEXPREOPT_PIC := true
+        # Disable gzipping to be able to use PIC
+        WITH_DEXPREOPT_COMP := false
     endif
 endif
