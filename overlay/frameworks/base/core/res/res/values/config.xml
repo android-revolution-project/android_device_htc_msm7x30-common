@@ -222,8 +222,5 @@
 
     <!-- Is the device LTE capable -->
     <bool name="config_lte_capable">false</bool>
-    
-    <!-- Fix old GPS HALs -->
-    <bool name="config_legacyGpsHAL">true</bool>
 
 </resources>
