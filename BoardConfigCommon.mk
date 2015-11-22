@@ -82,6 +82,7 @@ BLOCK_BASED_OTA := false
 TARGET_NEEDS_NON_PIE_SUPPORT := true
 TARGET_DISABLE_ARM_PIE := true
 BOARD_PROVIDES_LIBRIL := true
+BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
 
 # Use dlmalloc instead of jemalloc because it's
 # supposedly better in single-threaded applications
@@ -134,14 +135,3 @@ TARGET_RECOVERY_DEVICE_DIRS += device/htc/msm7x30-common
 #    untrusted_app.te \
 #    vold.te \
 #    wpa.te
-
-# Dexpreopt
-ifeq ($(USE_DEXPREOPT),true)
-    # Enable dex-preoptimization to speed up first boot sequence
-    ifeq ($(HOST_OS),linux)
-        ifeq ($(WITH_DEXPREOPT),)
-            WITH_DEXPREOPT := true
-            WITH_DEXPREOPT_COMP := true
-        endif
-    endif
-endif

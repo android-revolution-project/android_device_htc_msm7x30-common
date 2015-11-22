@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 PRODUCT_PACKAGE_OVERLAYS += device/htc/msm7x30-common/overlay
 
 COMMON_PATH := device/htc/msm7x30-common
@@ -28,8 +29,8 @@ PRODUCT_BOOT_JARS += qcmediaplayer
 
 # Ramdisk files
 PRODUCT_PACKAGES += \
-	fstab.htc7x30 \
 	init.htc7x30.rc \
+	init.htc7x30.power.rc \
 	init.htc7x30.usb.rc \
 	ueventd.htc7x30.rc
 
@@ -52,7 +53,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+	frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
 	$(COMMON_PATH)/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
 	$(COMMON_PATH)/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
 	$(COMMON_PATH)/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf
@@ -102,6 +103,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += qcmediaplayer
 
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+
 # Misc
 PRODUCT_PACKAGES += com.android.future.usb.accessory
 
@@ -114,12 +120,9 @@ PRODUCT_PACKAGES += LiveWallpapersPicker
 # DeviceSettings
 PRODUCT_PACKAGES += DeviceSettings
 
-# Use ART small mode
-# http://source.android.com/devices/tech/dalvik/configure.html#with_art_small_mode
+# No watchdog for dex2oat
 PRODUCT_PROPERTY_OVERRIDES += \
-	dalvik.vm.dex2oat-filter=interpret-only \
 	dalvik.vm.dex2oat-flags=--no-watch-dog \
-	dalvik.vm.image-dex2oat-filter=speed
 
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
