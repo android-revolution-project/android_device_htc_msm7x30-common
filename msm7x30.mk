@@ -139,7 +139,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # QCOM
 PRODUCT_PROPERTY_OVERRIDES += \
 	com.qc.hardware=true \
-	debug.composition.type=gpu \
+	debug.composition.type=dyn \
 	debug.sf.hw=1 \
 	debug.egl.hw=1 \
 	debug.egl.recordable.rgba8888=1
