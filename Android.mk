@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifneq ($(filter ace saga vision,$(TARGET_DEVICE)),)
+ifneq ($(filter ace aceopt saga sagaopt vision,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))

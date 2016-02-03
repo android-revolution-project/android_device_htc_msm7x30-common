@@ -156,8 +156,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	af.resampler.quality=255
 
 # Set default USB interface
+ifneq ($(filter aceopt sagaopt,$(TARGET_DEVICE)),)
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.usb.config=mtp,adb
+else
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mass_storage,adb
+endif
 
 # Extra debugging props
 PRODUCT_PROPERTY_OVERRIDES += \
