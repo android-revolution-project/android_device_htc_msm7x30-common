@@ -93,7 +93,8 @@ PRODUCT_PACKAGES += \
 	libOmxVdec \
 	libOmxVenc \
 	libc2dcolorconvert \
-	libstagefrighthw
+	libstagefrighthw \
+	libdashplayer
 
 # Misc
 PRODUCT_PACKAGES += \
