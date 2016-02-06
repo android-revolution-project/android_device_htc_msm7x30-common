@@ -121,11 +121,9 @@ PRODUCT_PACKAGES += LiveWallpapersPicker
 # DeviceSettings
 PRODUCT_PACKAGES += DeviceSettings
 
-# ART
+# No watchdog for dex2oat
 PRODUCT_PROPERTY_OVERRIDES += \
-	dalvik.vm.dex2oat-filter=balanced
 	dalvik.vm.dex2oat-flags=--no-watch-dog \
-	dalvik.vm.image-dex2oat-filter=speed \
 	dalvik.vm.image-dex2oat-flags=--no-watch-dog
 
 # For applications to determine if they should turn off specific memory-intensive
