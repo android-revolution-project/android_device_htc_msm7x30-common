@@ -29,7 +29,6 @@
 #define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 #define BOOSTPULSE_ONDEMAND "/sys/devices/system/cpu/cpufreq/ondemand/boostpulse"
 #define BOOSTPULSE_INTERACTIVE "/sys/devices/system/cpu/cpufreq/interactive/boostpulse"
-#define BOOSTPULSE_SMARTASS2 "/sys/devices/system/cpu/cpufreq/smartass/boost_pulse"
 
 struct cm_power_module {
     struct power_module base;
@@ -165,8 +164,6 @@ static int boostpulse_open(struct cm_power_module *cm)
                 cm->boostpulse_fd = open(BOOSTPULSE_ONDEMAND, O_WRONLY);
             else if (strncmp(governor, "interactive", 11) == 0)
                 cm->boostpulse_fd = open(BOOSTPULSE_INTERACTIVE, O_WRONLY);
-            else if (strncmp(governor, "smartassV2", 10) == 0)
-                cm->boostpulse_fd = open(BOOSTPULSE_SMARTASS2, O_WRONLY);
 
             if (cm->boostpulse_fd < 0 && !cm->boostpulse_warned) {
                 strerror_r(errno, buf, sizeof(buf));
