@@ -135,7 +135,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.force_highendgfx=true
 
 # ODPUpdater
-PRODUCT_PACKAGES += ODPUpdater
+#PRODUCT_PACKAGES += ODPUpdater
 
 ifeq ($(TARGET_UNOFFICIAL_BUILD_ID),)
 PRODUCT_PROPERTY_OVERRIDES += ro.odp.releasetype=NIGHTLY
