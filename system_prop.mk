@@ -3,7 +3,7 @@
 #
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=240 \
+	ro.sf.lcd_density=220 \
 	ro.gsm.2nd_data_retry_config=max_retries=3,2000,2000,2000 \
 	com.qc.hardware=true
 
@@ -59,7 +59,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # UMS
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.sys.usb.default.config=mtp \
-	persist.sys.usb.config=mtp \
+	persist.sys.usb.config=mtp,adb \
 	ro.vold.umsdirtyratio=20
 
 # Memory
@@ -79,3 +79,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.strictmode.visual=0 \
 	persist.sys.strictmode.disable=1
+#Google DNS Tweaks
+PRODUCT_PROPERTY_OVERRIDES += \
+	net.rmnet0.dns1=8.8.8.8 \
+	net.rmnet0.dns2=8.8.4.4 \
+	net.dns1=8.8.8.8 \
+	net.dns2=8.8.4.4
